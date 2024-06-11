@@ -1,13 +1,12 @@
 import { Router } from 'express';
 import EventController from './event-controller';
 import EventService from './event-service';
-
-//in order to provide our frontend with the user data, we need to specify user routes
+import AuthService from "../auth/auth-service";
 
 const eventRouter = Router();
-
 const eventService = new EventService();
-const eventController = new EventController(eventService);
+const authService = new AuthService();
+const eventController = new EventController(eventService, authService);
 
 eventRouter.get('/events/', eventController.getEvents);
 eventRouter.post('/events/', eventController.createEvent);
