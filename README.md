@@ -1,3 +1,39 @@
+# Deployed at
+http://195.49.210.50:8888
+
+i used docker for a mongo, not atlas
+
+# Examples
+get events with pagination and sorting (token required!!!!!!!) [get]
+-
+/api/v1/events?sortBy=name&sortDirection=desc&limit=10&offset=0
+
+[post] register
+-
+/api/v1/register
+
+example body
+```
+{
+    "email": "fawfawwfa",
+    "password": "string",
+    "location": "string"
+}
+```
+
+[post] login
+-
+/api/v1/login
+
+example body
+ 
+```
+{
+    "email": "fawfawwfa",
+    "password": "string"
+}
+```
+
 # 🚀 Node.js TypeScript Boilerplate
 
 This is a boilerplate project for building Node.js applications using TypeScript. It includes a basic setup for Express.js, custom logging middleware, and route management.
@@ -86,3 +122,12 @@ To get started with this project, follow these steps:
 This setup provides a structured way to build a Node.js application using TypeScript, with clear separation of concerns and organized testing. It includes everything you need to get started quickly and scale your application efficiently.
 
 Feel free to customize the structure and add more features as per your requirements. Happy coding! 💻
+
+``` cmd
+docker run -d \
+  --name mongodb \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=admin \
+  -p 27017:27017 \
+  mongo
+```
